@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: landing
+    description: The primary source system for order management system(OMS) data analytics. 
+    database: SLEEKMART_OMS
+    schema: L1_LANDING
+    freshness:
+      warn_after: {count: 7, period: day}
+      error_after: {count: 30, period: day}
+    loaded_at_field: Updated_at
+    tables:
+      - name: cust
+        identifier: customers
+        description: The customers table from order management system(OMS). 
+      - name: ordr
+        identifier: orders
+        description: The orders table from order management system(OMS). 
+      - name: ordritms
+        description: The orderitems table from order management system(OMS).
+        identifier: orderitems
+      - name: emp
+        identifier: employees
+        description: The employees table from order management system(OMS).
+        columns:
+        - name: address
+          description: Full Address of emplyees for Transport Arrangements. 
+          tests: 
+            - not_null
+            - string_not_empty
+  - name: training
+    database: SLEEKMART_OMS
+    schema: TRAINING
+    tables:
+      - name: city_temperature
+      - name: sales_us
+      - name: sales_uk
+      - name: sales_india
