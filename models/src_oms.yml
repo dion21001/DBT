@@ -28,6 +28,22 @@ sources:
           tests: 
             - not_null
             - string_not_empty
+      - name: date
+        identifier: date
+        description: The date table from order management system(OMS).
+
+      - name: prdt
+        identifier: products
+        description: The products table from order management system(OMS).
+      
+      - name: str
+        identifier: stores
+        description: The stores table from order management system(OMS).
+
+      - name: sup
+        identifier: suppliers
+        description: The suppliers table from order management system(OMS).
+
   - name: training
     database: SLEEKMART_OMS
     schema: TRAINING
